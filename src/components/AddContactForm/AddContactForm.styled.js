@@ -35,6 +35,7 @@ export const BtnAdd = styled.button`
   color: #fff;
   border: none;
   transition: all 250ms ease-in-out;
+  cursor: pointer;
 
   &:hover {
     background-color: var(--accent-color);
