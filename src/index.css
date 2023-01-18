@@ -1,13 +1,28 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+/* bring in normalize.css styles */
+
+:root {
+  --first-color-dark: #021C1E;
+  --accent-color: #6FB98F;
+  --second-color: #2c7873;
+  --some-second-color: #004445;
+  --some-white-color: #f0e2d5;
+  /* --some-white-color: #f1dcc9; */
+
+
+}
 
 body {
   margin: 0;
+  background-color: var(--some-white-color);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
