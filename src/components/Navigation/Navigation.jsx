@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import UserMenu from 'components/UserMenu/UserMenu';
+import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import {
   NavLinkStyle,
   NavStyle,
@@ -7,8 +10,25 @@ import {
   Logo,
   Logotext,
 } from './Navigation.styled';
+import { LoginForm } from 'components/LoginForm/LoginForm';
+// import { register } from 'redux/auth/auth-operations';
 
 const Navigation = () => {
+  const [login, setLogin] = useState(false);
+  const [register, setRegister] = useState(false);
+
+  const showUpdateFormRegister = () => {
+    setRegister(true);
+  };
+  const showUpdateFormLogin = () => {
+    setLogin(true);
+  };
+
+  const closeForm = () => {
+    setLogin(false);
+    setRegister(false);
+  };
+
   return (
     <NavStyle>
       <ListStyle>
@@ -16,6 +36,16 @@ const Navigation = () => {
           <Logo size="2em" />
           <Logotext>PhoneBook</Logotext>
         </LogoContainer>
+        <UserMenu />
+        <button onClick={() => showUpdateFormRegister()} type="button">
+          Register
+        </button>
+
+        <button onClick={() => showUpdateFormLogin()} type="button">
+          Login
+        </button>
+        {register && <RegisterForm closeForm={closeForm} />}
+        {login && <LoginForm closeForm={closeForm} />}
         <ItemStyle>
           <NavLinkStyle to="/">Home</NavLinkStyle>
         </ItemStyle>

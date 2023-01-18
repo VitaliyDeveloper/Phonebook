@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <>
       <Filter />
-      <Contacts />
+      {/* <Contacts /> */}
     </>
   );
 };

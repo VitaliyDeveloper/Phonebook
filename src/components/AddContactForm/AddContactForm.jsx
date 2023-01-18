@@ -17,7 +17,7 @@ import { selectContacts } from 'redux/contacts/contacts-selectors';
 const AddContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [mail, setMail] = useState('');
+  const [email, setEmail] = useState('');
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
@@ -34,8 +34,8 @@ const AddContactForm = () => {
         setNumber(value);
         break;
 
-      case 'mail':
-        setMail(value);
+      case 'email':
+        setEmail(value);
         break;
 
       default:
@@ -47,7 +47,7 @@ const AddContactForm = () => {
     event.preventDefault();
 
     const status = await getStatus();
-    const contact = { name, number, mail, id: nanoid(), status };
+    const contact = { name, number, email, id: nanoid(), status };
 
     const isExist = contacts.find(
       contact => contact.name === name || contact.number === number
@@ -69,7 +69,7 @@ const AddContactForm = () => {
   const resetFields = () => {
     setName('');
     setNumber('');
-    setMail('');
+    setEmail('');
   };
 
   return (
@@ -100,11 +100,11 @@ const AddContactForm = () => {
         </Label>
 
         <Label>
-          <FieldName>E-mail:</FieldName>
+          <FieldName>E-email:</FieldName>
           <Input
             type="mailto"
-            name="mail"
-            value={mail}
+            name="email"
+            value={email}
             onChange={handleChange}
           />
         </Label>
