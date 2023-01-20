@@ -40,14 +40,14 @@ const Contacts = () => {
 
   return (
     <ContactsList>
-      {contacts.map(({ name, number, mail, id }) => (
+      {contacts.map(({ name, number, id }) => (
         <ContactItem key={id}>
           <ContactContainer>
             <Avatar name={name} size="50" />
             <FieldContactContainer>
               <FieldContact>Name: {name}</FieldContact>
               <FieldContact>Number: {number}</FieldContact>
-              <FieldContact>E-mail: {mail}</FieldContact>
+              {/* <FieldContact>E-mail: {mail}</FieldContact> */}
             </FieldContactContainer>
 
             <BtnDelete onClick={() => dispatch(deleteContacts(id))}>

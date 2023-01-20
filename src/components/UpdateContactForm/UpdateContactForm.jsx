@@ -16,7 +16,6 @@ import { Notify } from 'notiflix';
 const UpdateContactForm = ({ closeForm, contactUpdate }) => {
   const [name, setName] = useState(contactUpdate.name);
   const [number, setNumber] = useState(contactUpdate.number);
-  const [email, setEmail] = useState(contactUpdate.email);
 
   const dispatch = useDispatch();
 
@@ -32,10 +31,6 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
         setNumber(value);
         break;
 
-      case 'email':
-        setEmail(value);
-        break;
-
       default:
         return;
     }
@@ -47,7 +42,6 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
       updateContacts({
         ...contactUpdate,
         name,
-        email,
         number,
       })
     );
@@ -82,16 +76,6 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
               value={number}
               onChange={handleChange}
               // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            />
-          </Label>
-
-          <Label>
-            <FieldName>E-email:</FieldName>
-            <Input
-              type="emailto"
-              name="email"
-              value={email}
-              onChange={handleChange}
             />
           </Label>
 

@@ -15,6 +15,7 @@ export const Title = styled.p`
   font-size: 100px;
   width: auto;
   color: var(--second-color);
+  text-shadow: 0 0 20px #666666;
 `;
 
 export const Span = styled.span`
@@ -25,4 +26,5 @@ export const Span = styled.span`
   text-transform: uppercase;
   text-align: right;
   color: var(--accent-color);
+  text-shadow: 0 0 20px #666666;
 `;

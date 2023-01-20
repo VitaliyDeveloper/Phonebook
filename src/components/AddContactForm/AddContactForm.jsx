@@ -11,13 +11,12 @@ import {
   FieldName,
   Modal,
 } from './AddContactForm.styled';
-import { getStatus } from 'services/answerApi';
+
 import { selectContacts } from 'redux/contacts/contacts-selectors';
 
 const AddContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [email, setEmail] = useState('');
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
@@ -34,10 +33,6 @@ const AddContactForm = () => {
         setNumber(value);
         break;
 
-      case 'email':
-        setEmail(value);
-        break;
-
       default:
         return;
     }
@@ -46,8 +41,7 @@ const AddContactForm = () => {
   const handleSubmit = async event => {
     event.preventDefault();
 
-    const status = await getStatus();
-    const contact = { name, number, email, id: nanoid(), status };
+    const contact = { name, number, id: nanoid() };
 
     const isExist = contacts.find(
       contact => contact.name === name || contact.number === number
@@ -61,7 +55,7 @@ const AddContactForm = () => {
     }
 
     dispatch(addContacts(contact));
-    // console.log(contact);
+    console.log(contact);
 
     resetFields();
   };
@@ -69,7 +63,6 @@ const AddContactForm = () => {
   const resetFields = () => {
     setName('');
     setNumber('');
-    setEmail('');
   };
 
   return (
@@ -96,16 +89,6 @@ const AddContactForm = () => {
             onChange={handleChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             required
-          />
-        </Label>
-
-        <Label>
-          <FieldName>E-email:</FieldName>
-          <Input
-            type="mailto"
-            name="email"
-            value={email}
-            onChange={handleChange}
           />
         </Label>
 

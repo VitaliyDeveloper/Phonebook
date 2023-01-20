@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
@@ -26,6 +27,8 @@ export const addContacts = createAsyncThunk(
         `https://connections-api.herokuapp.com/contacts`,
         contact
       );
+      Notify.success(` ${contact.name} added successfully`);
+
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -38,10 +41,9 @@ export const updateContacts = createAsyncThunk(
   async (contact, { rejectWithValue }) => {
     try {
       await axios.put(
-        `https://connections-api.herokuapp.com/contacts/${contact.id}`,
-        contact
+        `https://connections-api.herokuapp.com/contacts/${contact.id}`
       );
-      // console.log(contact);
+      console.log(contact);
       return contact;
     } catch (error) {
       return rejectWithValue(error);
@@ -54,8 +56,9 @@ export const deleteContacts = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       await axios.delete(
-        `https://connections-api.herokuapp.com//contacts/${id}`
+        `https://connections-api.herokuapp.com/contacts/${id}`
       );
+      Notify.success(`Contact successfully removed`);
       return id;
     } catch (error) {
       return rejectWithValue(error);
