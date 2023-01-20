@@ -78,7 +78,12 @@ export const Input = styled.input`
   }
 `;
 
+export const BtnContainer = styled.div`
+  display: flex;
+`;
+
 export const BtnAdd = styled.button`
+  margin: 10px;
   padding: 10px;
   background-color: var(--second-color);
   color: #fff;

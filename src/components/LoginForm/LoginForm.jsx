@@ -8,6 +8,7 @@ import {
   Label,
   FieldName,
   Input,
+  BtnContainer,
   BtnAdd,
 } from './LoginForm.styled';
 
@@ -72,8 +73,10 @@ export const LoginForm = ({ closeForm }) => {
               required
             />
           </Label>
-          <BtnAdd>login</BtnAdd>
-          <BtnAdd onClick={handleClose}>Cancel</BtnAdd>
+          <BtnContainer>
+            <BtnAdd>login</BtnAdd>
+            <BtnAdd onClick={handleClose}>Cancel</BtnAdd>
+          </BtnContainer>
         </Form>
       </ModalDialog>
     </Modal>

@@ -9,6 +9,7 @@ import {
   LogoContainer,
   Logo,
   Logotext,
+  Btn,
 } from './Navigation.styled';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 // import { register } from 'redux/auth/auth-operations';
@@ -37,13 +38,13 @@ const Navigation = () => {
           <Logotext>PhoneBook</Logotext>
         </LogoContainer>
         <UserMenu />
-        <button onClick={() => showUpdateFormRegister()} type="button">
+        <Btn onClick={() => showUpdateFormRegister()} type="button">
           Register
-        </button>
+        </Btn>
 
-        <button onClick={() => showUpdateFormLogin()} type="button">
+        <Btn onClick={() => showUpdateFormLogin()} type="button">
           Login
-        </button>
+        </Btn>
         {register && <RegisterForm closeForm={closeForm} />}
         {login && <LoginForm closeForm={closeForm} />}
         <ItemStyle>
@@ -51,6 +52,9 @@ const Navigation = () => {
         </ItemStyle>
         <ItemStyle>
           <NavLinkStyle to="add">Add contact</NavLinkStyle>
+        </ItemStyle>
+        <ItemStyle>
+          <NavLinkStyle to="contacts">Contacts</NavLinkStyle>
         </ItemStyle>
       </ListStyle>
     </NavStyle>

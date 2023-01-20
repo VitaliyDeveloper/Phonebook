@@ -8,6 +8,7 @@ import {
   Label,
   FieldName,
   Input,
+  BtnContainer,
   BtnAdd,
 } from './RegisterForm.styled';
 
@@ -87,8 +88,10 @@ export const RegisterForm = ({ closeForm }) => {
               required
             />
           </Label>
-          <BtnAdd>Register</BtnAdd>
-          <BtnAdd onClick={handleClose}>Cancel</BtnAdd>
+          <BtnContainer>
+            <BtnAdd>Register</BtnAdd>
+            <BtnAdd onClick={handleClose}>Cancel</BtnAdd>
+          </BtnContainer>
         </Form>
       </ModalDialog>
     </Modal>

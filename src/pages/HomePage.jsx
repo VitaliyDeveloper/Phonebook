@@ -1,13 +1,7 @@
-import Contacts from 'components/Contacts/Contacts';
-import Filter from 'components/Filter/Filter';
+import TitleHome from 'components/Titlre/Title';
 
 const HomePage = () => {
-  return (
-    <>
-      <Filter />
-      <Contacts />
-    </>
-  );
+  return <TitleHome />;
 };
 
 export default HomePage;

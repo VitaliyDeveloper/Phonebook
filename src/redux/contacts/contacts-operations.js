@@ -10,6 +10,7 @@ export const fetchContacts = createAsyncThunk(
       const { data } = await axios(
         'https://connections-api.herokuapp.com/contacts'
       );
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error);
