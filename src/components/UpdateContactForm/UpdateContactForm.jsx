@@ -2,16 +2,23 @@ import { useDispatch } from 'react-redux';
 import { updateContacts } from 'redux/contacts/contacts-operations';
 import { useState } from 'react';
 import {
-  Input,
   Label,
-  BtnAdd,
   Form,
-  FieldName,
   Modal,
   ModalDialog,
   Close,
 } from './UpdateContactForm.styled';
 import { Notify } from 'notiflix';
+import { TextField, Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+//Styles///////////////////////////////////////////
+
+const Root = styled('div')(({ theme }) => ({
+  margin: theme.spacing(1),
+}));
+
+/////////////////////////////////////////////////////
 
 const UpdateContactForm = ({ closeForm, contactUpdate }) => {
   const [name, setName] = useState(contactUpdate.name);
@@ -64,8 +71,9 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
       <ModalDialog>
         <Form onSubmit={handleSubmit}>
           <Label>
-            <FieldName>Name:</FieldName>
-            <Input
+            <TextField
+              rText="Please enter Name"
+              label="Name:"
               type="text"
               name="name"
               value={name}
@@ -75,8 +83,9 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
           </Label>
 
           <Label>
-            <FieldName>Number:</FieldName>
-            <Input
+            <TextField
+              helperText="Please enter e-mail"
+              label="E-mail:"
               type="tel"
               name="number"
               value={number}
@@ -85,7 +94,9 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
             />
           </Label>
 
-          <BtnAdd>Save</BtnAdd>
+          <Button type="submit" variant="outlined">
+            Save
+          </Button>
           <Close onClick={handleClose} size="30" />
         </Form>
       </ModalDialog>

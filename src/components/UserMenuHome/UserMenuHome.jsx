@@ -5,7 +5,6 @@ import { Button } from '@mui/material';
 
 const UserMenuHome = () => {
   const dispatch = useDispatch();
-  //   const name = useSelector(selectName);
   const handleLogout = () => {
     dispatch(logout());
   };

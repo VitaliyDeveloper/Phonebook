@@ -20,7 +20,7 @@ export const ContactsList = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   list-style: none;
-  border-top: 5px solid var(--second-color);
+  /* border-top: 5px solid var(--second-color); */
 `;
 
 export const ContactItem = styled.li`
@@ -35,6 +35,19 @@ export const ContactItem = styled.li`
   margin: 10px;
   border-top: 10px solid var(--second-color);
   transition: 350ms;
+
+  animation: showUp 2000ms ease-in-out;
+
+  @keyframes showUp {
+    0% {
+      transform: translate(-120%, 0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 0.9;
+    }
+  }
 
   &:hover {
     border-top: 10px solid var(--accent-color);

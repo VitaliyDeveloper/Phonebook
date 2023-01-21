@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'redux/auth/auth-operations';
 import { selectName } from 'redux/auth/auth-selector';
-import { NameText, Btn, UserMenuContainer } from './UserMenu.styled';
+import { NameText, UserMenuContainer } from './UserMenu.styled';
+import { Button } from '@mui/material';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,9 @@ const UserMenu = () => {
   return (
     <UserMenuContainer>
       <NameText>{`Welcome, ${name}!`}</NameText>
-      <Btn onClick={handleLogout}>Logout</Btn>
+      <Button variant="outlined" onClick={handleLogout}>
+        Logout
+      </Button>
     </UserMenuContainer>
   );
 };

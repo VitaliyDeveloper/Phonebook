@@ -28,7 +28,6 @@ export const Modal = styled.div`
 export const ModalDialog = styled.div`
   width: 100%;
   max-width: 450px;
-  /* background: var(--second-color); */
   background: rgba(255, 255, 255, 1);
   position: relative;
   margin: 0 20px;
@@ -51,10 +50,6 @@ export const ModalDialog = styled.div`
     to {
       transform: translateY(0);
     }
-  }
-
-  &:hover {
-    background: #fff;
   }
 `;
 

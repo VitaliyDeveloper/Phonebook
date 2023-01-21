@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const FilterContainer = styled.div`
   display: flex;
   justify-content: center;
+  background-color: var(--first-color-dark);
 `;
 
 export const FilterLabel = styled.label`
