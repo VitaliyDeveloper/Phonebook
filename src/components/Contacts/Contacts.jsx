@@ -8,8 +8,6 @@ import { fetchContacts } from 'redux/contacts/contacts-operations';
 import Avatar from 'react-avatar';
 import { useEffect, useState } from 'react';
 import UpdateContactForm from 'components/UpdateContactForm/UpdateContactForm';
-import { Fab } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import {
   ContactsList,
   ContactItem,
@@ -53,10 +51,6 @@ const Contacts = () => {
               {isLoading ? 'Deleting' : 'Delete'}
             </BtnDelete>
             <BtnDelete onClick={() => showUpdateForm(id)}>Edit</BtnDelete>
-
-            <Fab disabled aria-label="like">
-              <FavoriteIcon />
-            </Fab>
           </ContactContainer>
           {contactUpdate && contactUpdate.id === id && (
             <UpdateContactForm

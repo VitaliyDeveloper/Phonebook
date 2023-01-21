@@ -54,8 +54,14 @@ export const RegisterForm = ({ closeForm }) => {
     closeForm();
   };
 
+  const handleCloseBg = e => {
+    if (e.target === e.currentTarget) {
+      closeForm();
+    }
+  };
+
   return (
-    <Modal>
+    <Modal onClick={handleCloseBg}>
       <ModalDialog>
         <Form onSubmit={handleSubmit}>
           <Label>

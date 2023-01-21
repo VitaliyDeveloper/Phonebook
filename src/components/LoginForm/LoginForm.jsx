@@ -49,8 +49,14 @@ export const LoginForm = ({ closeForm }) => {
     closeForm();
   };
 
+  const handleCloseBg = e => {
+    if (e.target === e.currentTarget) {
+      closeForm();
+    }
+  };
+
   return (
-    <Modal>
+    <Modal onClick={handleCloseBg}>
       <ModalDialog>
         <Form onSubmit={handleSubmit}>
           <Label>
