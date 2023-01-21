@@ -43,7 +43,8 @@ export const updateContacts = createAsyncThunk(
       await axios.put(
         `https://connections-api.herokuapp.com/contacts/${contact.id}`
       );
-      console.log(contact);
+      console.log(contact.id);
+      Notify.success(` ${contact.name} updated successfully`);
       return contact;
     } catch (error) {
       return rejectWithValue(error);
@@ -58,6 +59,7 @@ export const deleteContacts = createAsyncThunk(
       await axios.delete(
         `https://connections-api.herokuapp.com/contacts/${id}`
       );
+      console.log(id);
       Notify.success(`Contact successfully removed`);
       return id;
     } catch (error) {

@@ -30,10 +30,11 @@ const contactsSlice = createSlice({
         state.items = [...state.items, payload];
       })
       .addCase(updateContacts.fulfilled, (state, { payload }) => {
-        const index = state.items.findIndex(
-          contact => contact.id === payload.id
-        );
-        state.items[index] = payload;
+        // const index = state.items.findIndex(
+        //   contact => contact.id === payload.id
+        // );
+        // state.items[index] = payload;
+        state.items = state.items.find(({ id }) => id !== payload);
       })
       .addCase(deleteContacts.fulfilled, (state, { payload }) => {
         state.items = state.items.filter(({ id }) => id !== payload);

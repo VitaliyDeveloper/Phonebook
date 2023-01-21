@@ -47,13 +47,13 @@ const Contacts = () => {
             <FieldContactContainer>
               <FieldContact>Name: {name}</FieldContact>
               <FieldContact>Number: {number}</FieldContact>
-              {/* <FieldContact>E-mail: {mail}</FieldContact> */}
             </FieldContactContainer>
 
             <BtnDelete onClick={() => dispatch(deleteContacts(id))}>
               {isLoading ? 'Deleting' : 'Delete'}
             </BtnDelete>
             <BtnDelete onClick={() => showUpdateForm(id)}>Edit</BtnDelete>
+
             <Fab disabled aria-label="like">
               <FavoriteIcon />
             </Fab>

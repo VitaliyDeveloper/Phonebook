@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Layout from './Layout/Layout';
 import HomePage from 'pages/HomePage';
 import AddContactPage from 'pages/AddContactPage';
@@ -20,7 +20,7 @@ export const App = () => {
 
   return (
     <>
-      {/* {!isFetchingCurrentUser && ( */}
+      {/* {isFetchingCurrentUser && ( */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route

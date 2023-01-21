@@ -46,7 +46,6 @@ const authSlice = createSlice({
           state.user = user;
           state.isLoading = false;
           state.error = null;
-          state.isFetchingCurrentUser = false;
         }
       )
       .addMatcher(
