@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectContacts } from 'redux/contacts/contacts-selectors';
 import { addContacts } from 'redux/contacts/contacts-operations';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
-import {
-  Input,
-  Label,
-  BtnAdd,
-  Form,
-  FieldName,
-  Modal,
-} from './AddContactForm.styled';
+import { Label, Form } from './AddContactForm.styled';
+import { TextField, Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-import { selectContacts } from 'redux/contacts/contacts-selectors';
+const Root = styled('div')(({ theme }) => ({
+  margin: theme.spacing(1),
+}));
 
 const AddContactForm = () => {
   const [name, setName] = useState('');
@@ -66,11 +64,11 @@ const AddContactForm = () => {
   };
 
   return (
-    <Modal>
-      <Form onSubmit={handleSubmit}>
-        <Label>
-          <FieldName>Name:</FieldName>
-          <Input
+    <Form onSubmit={handleSubmit}>
+      <Label>
+        <Root>
+          <TextField
+            label="Name"
             type="text"
             name="name"
             value={name}
@@ -78,23 +76,26 @@ const AddContactForm = () => {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             required
           />
-        </Label>
+        </Root>
+      </Label>
 
-        <Label>
-          <FieldName>Number:</FieldName>
-          <Input
-            type="tel"
-            name="number"
-            value={number}
-            onChange={handleChange}
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            required
-          />
-        </Label>
-
-        <BtnAdd>Add contact</BtnAdd>
-      </Form>
-    </Modal>
+      <Label>
+        <TextField
+          label="Number"
+          type="tel"
+          name="number"
+          value={number}
+          onChange={handleChange}
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          required
+        />
+      </Label>
+      <Root>
+        <Button variant="outlined" type="submit">
+          Add contact
+        </Button>
+      </Root>
+    </Form>
   );
 };
 

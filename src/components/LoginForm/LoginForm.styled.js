@@ -12,7 +12,7 @@ export const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(15, 65, 125, 0.55);
   animation-name: appear;
   animation-duration: 300ms;
   @keyframes appear {
@@ -27,15 +27,18 @@ export const Modal = styled.div`
 
 export const ModalDialog = styled.div`
   width: 100%;
-  max-width: 550px;
-  background: var(--second-color);
+  max-width: 450px;
+  /* background: var(--second-color); */
+  background: rgba(255, 255, 255, 1);
   position: relative;
   margin: 0 20px;
-  max-height: calc(100vh - 40px);
+  padding: 50px 10px;
+  max-height: calc(100vh - 20px);
   text-align: left;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -48,6 +51,10 @@ export const ModalDialog = styled.div`
     to {
       transform: translateY(0);
     }
+  }
+
+  &:hover {
+    background: #fff;
   }
 `;
 
@@ -62,38 +69,8 @@ export const Label = styled.label`
   margin: 10px;
 `;
 
-export const FieldName = styled.p`
-  color: var(--some-white-color);
-  font-weight: bold;
-  /* color: var(--first-color-dark); */
-`;
-
-export const Input = styled.input`
-  font-size: 18px;
-  padding: 15px;
-  border-color: var(--some-white-color);
-
-  &:hover {
-    border: 2px solid var(--accent-color);
-  }
-`;
-
 export const BtnContainer = styled.div`
   display: flex;
-`;
-
-export const BtnAdd = styled.button`
-  margin: 10px;
-  padding: 10px;
-  background-color: var(--second-color);
-  color: #fff;
-  border: 1px solid var(--accent-color);
-  transition: all 250ms ease-in-out;
-
-  &:hover {
-    color: var(--second-color);
-    background-color: var(--accent-color);
-  }
 `;
 
 export const Close = styled(RiCloseCircleLine)`

@@ -44,8 +44,9 @@ export const ContactItem = styled.li`
 
 export const ContactContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  /* justify-content: space-around; */
+  justify-content: space-around;
 `;
 
 export const FieldContactContainer = styled.div`

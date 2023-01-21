@@ -1,8 +1,8 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/auth-selector';
 import UserMenu from 'components/UserMenu/UserMenu';
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+// import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import {
   NavLinkStyle,
   NavStyle,
@@ -11,28 +11,28 @@ import {
   LogoContainer,
   Logo,
   Logotext,
-  Btn,
+  // Btn,
 } from './Navigation.styled';
-import { LoginForm } from 'components/LoginForm/LoginForm';
+// import { LoginForm } from 'components/LoginForm/LoginForm';
 // import { register } from 'redux/auth/auth-operations';
 
 const Navigation = () => {
-  const [login, setLogin] = useState(false);
-  const [register, setRegister] = useState(false);
+  // const [login, setLogin] = useState(false);
+  // const [register, setRegister] = useState(false);
 
   const token = useSelector(selectToken);
 
-  const showUpdateFormRegister = () => {
-    setRegister(true);
-  };
-  const showUpdateFormLogin = () => {
-    setLogin(true);
-  };
+  // const showUpdateFormRegister = () => {
+  //   setRegister(true);
+  // };
+  // const showUpdateFormLogin = () => {
+  //   setLogin(true);
+  // };
 
-  const closeForm = () => {
-    setLogin(false);
-    setRegister(false);
-  };
+  // const closeForm = () => {
+  //   setLogin(false);
+  //   setRegister(false);
+  // };
 
   return (
     <NavStyle>
@@ -48,7 +48,7 @@ const Navigation = () => {
             <UserMenu />
           </ItemStyle>
         )}
-        {!token && (
+        {/* {!token && (
           <ItemStyle>
             <Btn onClick={() => showUpdateFormRegister()} type="button">
               Register
@@ -58,10 +58,10 @@ const Navigation = () => {
               Login
             </Btn>
           </ItemStyle>
-        )}
+        )} */}
 
-        {register && <RegisterForm closeForm={closeForm} />}
-        {login && <LoginForm closeForm={closeForm} />}
+        {/* {register && <RegisterForm closeForm={closeForm} />}
+        {login && <LoginForm closeForm={closeForm} />} */}
         <ItemStyle>
           <NavLinkStyle to="/">Home</NavLinkStyle>
         </ItemStyle>

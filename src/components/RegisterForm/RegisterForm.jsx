@@ -6,11 +6,19 @@ import {
   ModalDialog,
   Form,
   Label,
-  FieldName,
-  Input,
   BtnContainer,
-  BtnAdd,
 } from './RegisterForm.styled';
+
+import { TextField, Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+//Styles///////////////////////////////////////////
+
+const Root = styled('div')(({ theme }) => ({
+  margin: theme.spacing(1),
+}));
+
+/////////////////////////////////////////////////////
 
 export const RegisterForm = ({ closeForm }) => {
   const [name, setName] = useState('');
@@ -65,8 +73,9 @@ export const RegisterForm = ({ closeForm }) => {
       <ModalDialog>
         <Form onSubmit={handleSubmit}>
           <Label>
-            <FieldName>Name:</FieldName>
-            <Input
+            <TextField
+              helperText="Please enter your Name"
+              label="Name:"
               type="text"
               name="name"
               value={name}
@@ -75,8 +84,9 @@ export const RegisterForm = ({ closeForm }) => {
             />
           </Label>
           <Label>
-            <FieldName>E-mail:</FieldName>
-            <Input
+            <TextField
+              helperText="Please enter your e-mail"
+              label="E-mail:"
               type="mailto"
               name="email"
               value={email}
@@ -85,8 +95,9 @@ export const RegisterForm = ({ closeForm }) => {
             />
           </Label>
           <Label>
-            <FieldName>Password:</FieldName>
-            <Input
+            <TextField
+              helperText="Please enter your password"
+              label="Password:"
               type="password"
               name="password"
               value={password}
@@ -95,8 +106,16 @@ export const RegisterForm = ({ closeForm }) => {
             />
           </Label>
           <BtnContainer>
-            <BtnAdd>Register</BtnAdd>
-            <BtnAdd onClick={handleClose}>Cancel</BtnAdd>
+            <Root>
+              <Button type="submit" variant="outlined">
+                Register
+              </Button>
+            </Root>
+            <Root>
+              <Button onClick={handleClose} variant="outlined">
+                Cancel
+              </Button>
+            </Root>
           </BtnContainer>
         </Form>
       </ModalDialog>

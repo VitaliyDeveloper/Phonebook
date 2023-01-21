@@ -6,11 +6,18 @@ import {
   ModalDialog,
   Form,
   Label,
-  FieldName,
-  Input,
   BtnContainer,
-  BtnAdd,
 } from './LoginForm.styled';
+import { TextField, Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+//Styles///////////////////////////////////////////
+
+const Root = styled('div')(({ theme }) => ({
+  margin: theme.spacing(1),
+}));
+
+/////////////////////////////////////////////////////
 
 export const LoginForm = ({ closeForm }) => {
   const [email, setEmail] = useState('');
@@ -60,8 +67,9 @@ export const LoginForm = ({ closeForm }) => {
       <ModalDialog>
         <Form onSubmit={handleSubmit}>
           <Label>
-            <FieldName>E-mail:</FieldName>
-            <Input
+            <TextField
+              helperText="Please enter your e-mail"
+              label="E-mail:"
               type="mailto"
               name="email"
               value={email}
@@ -70,8 +78,9 @@ export const LoginForm = ({ closeForm }) => {
             />
           </Label>
           <Label>
-            <FieldName>Password:</FieldName>
-            <Input
+            <TextField
+              helperText="Please enter your password"
+              label="Password:"
               type="password"
               name="password"
               value={password}
@@ -80,8 +89,16 @@ export const LoginForm = ({ closeForm }) => {
             />
           </Label>
           <BtnContainer>
-            <BtnAdd>login</BtnAdd>
-            <BtnAdd onClick={handleClose}>Cancel</BtnAdd>
+            <Root>
+              <Button type="submit" variant="outlined">
+                login
+              </Button>
+            </Root>
+            <Root>
+              <Button onClick={handleClose} variant="outlined">
+                Cancel
+              </Button>
+            </Root>
           </BtnContainer>
         </Form>
       </ModalDialog>
