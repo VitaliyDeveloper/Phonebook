@@ -4,7 +4,7 @@ import { selectContacts } from 'redux/contacts/contacts-selectors';
 import { addContacts } from 'redux/contacts/contacts-operations';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
-import { Label, Form } from './AddContactForm.styled';
+import { Label, Form, Div } from './AddContactForm.styled';
 import { TextField, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -64,38 +64,40 @@ const AddContactForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Label>
-        <Root>
+    <Div>
+      <Form onSubmit={handleSubmit}>
+        <Label>
+          <Root>
+            <TextField
+              label="Name"
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              required
+            />
+          </Root>
+        </Label>
+
+        <Label>
           <TextField
-            label="Name"
-            type="text"
-            name="name"
-            value={name}
+            label="Number"
+            type="tel"
+            name="number"
+            value={number}
             onChange={handleChange}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             required
           />
+        </Label>
+        <Root>
+          <Button variant="outlined" type="submit">
+            Add contact
+          </Button>
         </Root>
-      </Label>
-
-      <Label>
-        <TextField
-          label="Number"
-          type="tel"
-          name="number"
-          value={number}
-          onChange={handleChange}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          required
-        />
-      </Label>
-      <Root>
-        <Button variant="outlined" type="submit">
-          Add contact
-        </Button>
-      </Root>
-    </Form>
+      </Form>
+    </Div>
   );
 };
 
