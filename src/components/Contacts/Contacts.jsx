@@ -12,10 +12,15 @@ import {
   ContactsList,
   ContactItem,
   ContactContainer,
-  BtnDelete,
   FieldContact,
   FieldContactContainer,
 } from 'components/Contacts/Contacts.styled';
+import { Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+const Root = styled('div')(({ theme }) => ({
+  margin: theme.spacing(1),
+}));
 
 const Contacts = () => {
   const [contactUpdate, setContactUpdate] = useState(null);
@@ -41,16 +46,24 @@ const Contacts = () => {
       {contacts.map(({ name, number, id }) => (
         <ContactItem key={id}>
           <ContactContainer>
-            <Avatar name={name} size="50" />
+            <Avatar name={name} size="50" borderRadius="5" />
             <FieldContactContainer>
               <FieldContact>Name: {name}</FieldContact>
               <FieldContact>Number: {number}</FieldContact>
             </FieldContactContainer>
-
-            <BtnDelete onClick={() => dispatch(deleteContacts(id))}>
-              {isLoading ? 'Deleting' : 'Delete'}
-            </BtnDelete>
-            <BtnDelete onClick={() => showUpdateForm(id)}>Edit</BtnDelete>
+            <Root>
+              <Button
+                variant="outlined"
+                onClick={() => dispatch(deleteContacts(id))}
+              >
+                {isLoading ? 'Deleting' : 'Delete'}
+              </Button>
+            </Root>
+            <Root>
+              <Button variant="outlined" onClick={() => showUpdateForm(id)}>
+                Edit
+              </Button>
+            </Root>
           </ContactContainer>
           {contactUpdate && contactUpdate.id === id && (
             <UpdateContactForm

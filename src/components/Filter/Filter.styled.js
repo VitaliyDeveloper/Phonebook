@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { NavLink } from 'react-router-dom';
 
 export const FilterContainer = styled.div`
   display: flex;
@@ -30,5 +29,3 @@ export const FilterInput = styled.input`
   font-size: 20px;
   padding: 10px;
 `;
-
-// export const FilterCintact = styled(NavLink)``;
