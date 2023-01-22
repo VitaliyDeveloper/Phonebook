@@ -4,8 +4,10 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch } from 'react-redux';
 import { changeFilter } from 'redux/contacts/contactsSlice';
+
 import { FilterContainer } from './Filter.styled';
 
+//SEARCH//////////////////////////////////////
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -47,8 +49,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+///////////////////////////////////////////////////////////////
+
 const Filter = () => {
   const dispatch = useDispatch();
+
   return (
     <FilterContainer>
       <Toolbar>
@@ -58,7 +63,7 @@ const Filter = () => {
           </SearchIconWrapper>
           <StyledInputBase
             onChange={e => dispatch(changeFilter(e.target.value))}
-            placeholder="Filter…"
+            placeholder="Search…"
             inputProps={{ 'aria-label': 'search' }}
           />
         </Search>

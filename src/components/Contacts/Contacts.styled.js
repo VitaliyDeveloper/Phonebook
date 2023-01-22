@@ -1,5 +1,19 @@
 import styled from 'styled-components';
 
+export const ContactsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SortBtnContainer = styled.div`
+  width: 200px;
+  margin-top: 20px;
+  /* margin-right: auto;
+  margin-left: auto; */
+`;
+
 export const ContactsList = styled.ul`
   padding: 10px;
   display: flex;
