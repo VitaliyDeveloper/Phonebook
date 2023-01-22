@@ -15,7 +15,7 @@ export const Form = styled.form`
   padding: 20px;
   /* border: 1px solid #727272; */
   /* border-radius: 5px; */
-  animation: show 1500ms ease;
+  animation: show 1000ms ease;
 
   @keyframes show {
     0% {

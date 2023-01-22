@@ -1,17 +1,10 @@
 import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch } from 'react-redux';
 import { changeFilter } from 'redux/contacts/contactsSlice';
-import {
-  FilterContainer,
-  // FilterLabel,
-  // FilterText,
-  // FilterInput,
-} from './Filter.styled';
+import { FilterContainer } from './Filter.styled';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -75,11 +68,3 @@ const Filter = () => {
 };
 
 export default Filter;
-
-// export default function Filter() {
-//   return (
-//     <Box sx={{ flexGrow: 1 }}>
-//       <AppBar position="static"></AppBar>
-//     </Box>
-//   );
-// }

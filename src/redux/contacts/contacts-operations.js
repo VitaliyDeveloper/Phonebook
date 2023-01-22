@@ -31,6 +31,7 @@ export const addContacts = createAsyncThunk(
 
       return data;
     } catch (error) {
+      Notify.failure(` ${contact.name} not added`);
       return rejectWithValue(error);
     }
   }
@@ -47,6 +48,7 @@ export const updateContacts = createAsyncThunk(
       Notify.success(` ${contact.name} updated successfully`);
       return contact;
     } catch (error) {
+      Notify.failure(` ${contact.name} not updated`);
       return rejectWithValue(error);
     }
   }
@@ -63,6 +65,7 @@ export const deleteContacts = createAsyncThunk(
       Notify.success(`Contact successfully removed`);
       return id;
     } catch (error) {
+      Notify.failure(`Contact not removed`);
       return rejectWithValue(error);
     }
   }

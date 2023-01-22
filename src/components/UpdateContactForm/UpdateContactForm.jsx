@@ -8,17 +8,7 @@ import {
   ModalDialog,
   Close,
 } from './UpdateContactForm.styled';
-import { Notify } from 'notiflix';
 import { TextField, Button } from '@mui/material';
-import { styled } from '@mui/material/styles';
-
-//Styles///////////////////////////////////////////
-
-const Root = styled('div')(({ theme }) => ({
-  margin: theme.spacing(1),
-}));
-
-/////////////////////////////////////////////////////
 
 const UpdateContactForm = ({ closeForm, contactUpdate }) => {
   const [name, setName] = useState(contactUpdate.name);
@@ -52,7 +42,7 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
         number,
       })
     );
-    Notify.success('Contact update');
+    // Notify.success(`Contact ${name} update`);
     closeForm();
   };
 
