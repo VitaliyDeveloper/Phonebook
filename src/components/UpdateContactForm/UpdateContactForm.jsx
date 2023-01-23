@@ -1,3 +1,4 @@
+import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { updateContacts } from 'redux/contacts/contacts-operations';
 import { useState } from 'react';
@@ -91,6 +92,11 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
       </ModalDialog>
     </Modal>
   );
+};
+
+UpdateContactForm.prototype = {
+  closeForm: PropTypes.func.isRequired,
+  contactUpdate: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default UpdateContactForm;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts-selectors';
 import { addContacts } from 'redux/contacts/contacts-operations';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
 import {
   FormContainer,
@@ -46,7 +46,7 @@ const AddContactForm = () => {
   const handleSubmit = async event => {
     event.preventDefault();
 
-    const contact = { name, number, id: nanoid() };
+    const contact = { name, number };
 
     const isExist = contacts.find(
       contact => contact.name === name || contact.number === number
