@@ -4,7 +4,14 @@ import { selectContacts } from 'redux/contacts/contacts-selectors';
 import { addContacts } from 'redux/contacts/contacts-operations';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
-import { Label, Form, Div } from './AddContactForm.styled';
+import {
+  FormContainer,
+  Label,
+  Form,
+  Title,
+  ShiftRight,
+  ShiftLeft,
+} from './AddContactForm.styled';
 import { TextField, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -64,8 +71,11 @@ const AddContactForm = () => {
   };
 
   return (
-    <Div>
+    <FormContainer>
       <Form onSubmit={handleSubmit}>
+        <Title>
+          <ShiftLeft>Add</ShiftLeft> <ShiftRight>contact</ShiftRight>
+        </Title>
         <Label>
           <Root>
             <TextField
@@ -93,11 +103,11 @@ const AddContactForm = () => {
         </Label>
         <Root>
           <Button variant="outlined" type="submit">
-            Add contact
+            save
           </Button>
         </Root>
       </Form>
-    </Div>
+    </FormContainer>
   );
 };
 

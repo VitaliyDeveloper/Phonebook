@@ -6,6 +6,8 @@ import { LoginForm } from 'components/LoginForm/LoginForm';
 import UserMenuHome from 'components/UserMenuHome/UserMenuHome';
 import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
+// import audio from '../../audio/Audio.mpeg';
+// import ReactAudioPlayer from 'react-audio-player';
 import {
   HomeContainer,
   TitleContainer,
@@ -79,6 +81,8 @@ export const Home = () => {
           {register && <RegisterForm closeForm={closeForm} />}
           {login && <LoginForm closeForm={closeForm} />}
         </ListStyle>
+
+        {/* <ReactAudioPlayer src={audio} autoPlay controls /> */}
       </HomeContainer>
     </>
   );

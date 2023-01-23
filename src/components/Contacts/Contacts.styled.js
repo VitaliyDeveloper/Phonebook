@@ -10,8 +10,6 @@ export const ContactsContainer = styled.div`
 export const SortBtnContainer = styled.div`
   width: 200px;
   margin-top: 20px;
-  /* margin-right: auto;
-  margin-left: auto; */
 `;
 
 export const ContactsList = styled.ul`
@@ -27,10 +25,8 @@ export const ContactItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: var(--second-color); */
   background-color: #fff;
   border: 1px solid var(--second-color);
-
   opacity: 0.9;
   min-width: 300px;
   padding: 15px;

@@ -8,11 +8,12 @@ export const Modal = styled.div`
   left: 0;
   right: 0;
   width: 100%;
+  height: 100vh;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(15, 65, 125, 0.55);
   animation-name: appear;
   animation-duration: 300ms;
   @keyframes appear {

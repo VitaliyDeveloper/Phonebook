@@ -42,7 +42,6 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
         number,
       })
     );
-    // Notify.success(`Contact ${name} update`);
     closeForm();
   };
 
@@ -62,7 +61,7 @@ const UpdateContactForm = ({ closeForm, contactUpdate }) => {
         <Form onSubmit={handleSubmit}>
           <Label>
             <TextField
-              rText="Please enter Name"
+              helperText="Please enter Name"
               label="Name:"
               type="text"
               name="name"

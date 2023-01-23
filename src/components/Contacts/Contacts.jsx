@@ -77,73 +77,77 @@ const Contacts = () => {
         {!sort ? (
           <>
             {contacts.map(({ name, number, id }) => (
-              <ContactItem key={id}>
-                <ContactContainer>
-                  <Avatar name={name} size="50" borderRadius="5" />
-                  <FieldContactContainer>
-                    <FieldContact>Name: {name}</FieldContact>
-                    <FieldContact>Number: {number}</FieldContact>
-                  </FieldContactContainer>
-                  <Root>
-                    <Button
-                      variant="outlined"
-                      onClick={() => dispatch(deleteContacts(id))}
-                    >
-                      {isLoading ? 'Deleting' : 'Delete'}
-                    </Button>
-                  </Root>
-                  <Root>
-                    <Button
-                      variant="outlined"
-                      onClick={() => showUpdateForm(id)}
-                    >
-                      Edit
-                    </Button>
-                  </Root>
-                </ContactContainer>
+              <>
                 {contactUpdate && contactUpdate.id === id && (
                   <UpdateContactForm
                     contactUpdate={contactUpdate}
                     closeForm={closeForm}
                   />
                 )}
-              </ContactItem>
+                <ContactItem key={id}>
+                  <ContactContainer>
+                    <Avatar name={name} size="50" borderRadius="5" />
+                    <FieldContactContainer>
+                      <FieldContact>Name: {name}</FieldContact>
+                      <FieldContact>Number: {number}</FieldContact>
+                    </FieldContactContainer>
+                    <Root>
+                      <Button
+                        variant="outlined"
+                        onClick={() => dispatch(deleteContacts(id))}
+                      >
+                        {isLoading ? 'Deleting' : 'Delete'}
+                      </Button>
+                    </Root>
+                    <Root>
+                      <Button
+                        variant="outlined"
+                        onClick={() => showUpdateForm(id)}
+                      >
+                        Edit
+                      </Button>
+                    </Root>
+                  </ContactContainer>
+                </ContactItem>
+              </>
             ))}
           </>
         ) : (
           <>
             {contactSort.map(({ name, number, id }) => (
-              <ContactItem key={id}>
-                <ContactContainer>
-                  <Avatar name={name} size="50" borderRadius="5" />
-                  <FieldContactContainer>
-                    <FieldContact>Name: {name}</FieldContact>
-                    <FieldContact>Number: {number}</FieldContact>
-                  </FieldContactContainer>
-                  <Root>
-                    <Button
-                      variant="outlined"
-                      onClick={() => dispatch(deleteContacts(id))}
-                    >
-                      {isLoading ? 'Deleting' : 'Delete'}
-                    </Button>
-                  </Root>
-                  <Root>
-                    <Button
-                      variant="outlined"
-                      onClick={() => showUpdateForm(id)}
-                    >
-                      Edit
-                    </Button>
-                  </Root>
-                </ContactContainer>
+              <>
                 {contactUpdate && contactUpdate.id === id && (
                   <UpdateContactForm
                     contactUpdate={contactUpdate}
                     closeForm={closeForm}
                   />
                 )}
-              </ContactItem>
+                <ContactItem key={id}>
+                  <ContactContainer>
+                    <Avatar name={name} size="50" borderRadius="5" />
+                    <FieldContactContainer>
+                      <FieldContact>Name: {name}</FieldContact>
+                      <FieldContact>Number: {number}</FieldContact>
+                    </FieldContactContainer>
+                    <Root>
+                      <Button
+                        variant="outlined"
+                        onClick={() => dispatch(deleteContacts(id))}
+                      >
+                        {isLoading ? 'Deleting' : 'Delete'}
+                      </Button>
+                    </Root>
+                    <Root>
+                      <Button
+                        variant="outlined"
+                        onClick={() => showUpdateForm(id)}
+                      >
+                        Edit
+                      </Button>
+                    </Root>
+                  </ContactContainer>
+                </ContactItem>
+              </>
             ))}
           </>
         )}
