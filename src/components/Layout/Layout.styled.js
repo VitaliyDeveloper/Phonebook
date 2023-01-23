@@ -3,14 +3,17 @@ import imgBG from '../../img/man-book.png';
 
 const Main = styled.main`
   position: relative;
+  min-height: 100vh;
+  margin-left: 150px;
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -50px;
+    top: 50px;
     left: 0;
-    min-height: 700px;
-    width: 100vh;
+    /* min-height: 500px; */
+    height: 100vh;
+    width: 100%;
     opacity: 50%;
     background: url(${imgBG});
     background-position: top;

@@ -10,19 +10,35 @@ export const TitleContainer = styled.div`
   justify-content: center;
   align-items: flex-end;
   margin: 20px 30px;
+
+  @media screen and (min-width: 1300px) {
+    margin-right: 200px;
+  }
 `;
 
-export const Title = styled.p`
+export const Span = styled.span`
   margin: 0;
-  text-align: right;
+  font-weight: bold;
+  font-size: 20px;
   text-transform: uppercase;
-  font-size: 80px;
-  color: var(--second-color);
-  animation: showUp 2000ms ease;
+  text-align: right;
+  color: var(--accent-color);
 
-  @keyframes showUp {
+  animation: showDown 2000ms ease;
+
+  @media screen and (min-width: 480px) {
+    font-size: 50px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 100px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 180px;
+  }
+
+  @keyframes showDown {
     0% {
-      transform: translate(0px, -120%);
+      transform: translate(0px, 120%);
       opacity: 0;
     }
     100% {
@@ -32,18 +48,27 @@ export const Title = styled.p`
   }
 `;
 
-export const Span = styled.span`
+export const Title = styled.p`
   margin: 0;
-  font-weight: bold;
-  font-size: 150px;
-  text-transform: uppercase;
   text-align: right;
-  color: var(--accent-color);
-  animation: showDown 2000ms ease;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: var(--second-color);
+  animation: showUp 2000ms ease;
 
-  @keyframes showDown {
+  @media screen and (min-width: 480px) {
+    font-size: 50px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 60px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 100px;
+  }
+
+  @keyframes showUp {
     0% {
-      transform: translate(0px, 120%);
+      transform: translate(0px, -120%);
       opacity: 0;
     }
     100% {
@@ -60,6 +85,10 @@ export const ListStyle = styled.ul`
   padding: 10px 20px;
   margin: 0;
   animation: show 2000ms ease-in-out;
+
+  @media screen and (min-width: 1300px) {
+    margin-right: 200px;
+  }
 
   @keyframes show {
     0% {
