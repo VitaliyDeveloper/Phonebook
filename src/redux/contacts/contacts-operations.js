@@ -42,7 +42,8 @@ export const updateContacts = createAsyncThunk(
   async (contact, { rejectWithValue }) => {
     try {
       await axios.put(
-        `https://connections-api.herokuapp.com/contacts/${contact.id}`
+        `https://connections-api.herokuapp.com/contacts/${contact.id}`,
+        contact
       );
       console.log(contact.id);
       Notify.success(` ${contact.name} updated successfully`);
