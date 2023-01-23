@@ -4,6 +4,18 @@ export const FilterContainer = styled.div`
   display: flex;
   justify-content: center;
   background-color: var(--first-color-dark);
+  animation: showUp 1500ms ease;
+
+  @keyframes showUp {
+    0% {
+      transform: translate(0px, -120%);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+  }
 `;
 
 export const FilterLabel = styled.label`

@@ -32,7 +32,7 @@ export const Home = () => {
   const token = useSelector(selectToken);
   const name = useSelector(selectName);
 
-  console.log(token);
+  // console.log(token);
 
   const showUpdateFormRegister = () => {
     setRegister(true);
