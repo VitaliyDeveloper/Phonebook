@@ -27,7 +27,7 @@ export const addContacts = createAsyncThunk(
         `https://connections-api.herokuapp.com/contacts`,
         contact
       );
-      Notify.success(` ${contact.name} added successfully`);
+      Notify.success(` ${data.name} added successfully`);
 
       return data;
     } catch (error) {
@@ -41,13 +41,14 @@ export const updateContacts = createAsyncThunk(
   'contacts/updateContacts',
   async (contact, { rejectWithValue }) => {
     try {
-      await axios.put(
+      const { data } = await axios.patch(
         `https://connections-api.herokuapp.com/contacts/${contact.id}`,
-        contact
+        contact.name
       );
-      console.log(contact.id);
-      Notify.success(` ${contact.name} updated successfully`);
-      return contact;
+
+      console.log(data);
+      Notify.success(` ${data.name} updated successfully`);
+      return data;
     } catch (error) {
       Notify.failure(` ${contact.name} not updated`);
       return rejectWithValue(error);
@@ -59,12 +60,12 @@ export const deleteContacts = createAsyncThunk(
   'contacts/deleteContacts',
   async (id, { rejectWithValue }) => {
     try {
-      await axios.delete(
+      const { data } = await axios.delete(
         `https://connections-api.herokuapp.com/contacts/${id}`
       );
-      console.log(id);
-      Notify.success(`Contact successfully removed`);
-      return id;
+      // console.log(data);
+      Notify.success(`${data.name} successfully removed`);
+      return data.id;
     } catch (error) {
       Notify.failure(`Contact not removed`);
       return rejectWithValue(error);
