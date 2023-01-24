@@ -5,7 +5,12 @@
 и настройки дополнительных возможностей
 [обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# React, Redux, Material UI, Axios
+# Используемый стэк:
+- React
+- Redux
+- Material UI
+- Style components
+- Axios
 
 # Возможности приложения:
  - реализована авторизация (JWT)
