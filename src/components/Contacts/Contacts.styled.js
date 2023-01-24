@@ -28,12 +28,12 @@ export const ContactItem = styled.li`
   background-color: #fff;
   border: 1px solid var(--second-color);
   opacity: 0.9;
-  min-width: 300px;
   padding: 15px;
   margin: 10px;
   border-top: 1px solid var(--second-color);
   border-radius: 5px;
   transition: 250ms ease-in-out;
+  min-width: 300px;
 
   animation: showLeft 1500ms ease-in-out;
 
