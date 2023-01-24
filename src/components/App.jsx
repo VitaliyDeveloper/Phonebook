@@ -20,25 +20,25 @@ export const App = () => {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route
-            index
-            element={
-              <PublicRoute>
-                <HomePage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/add"
-            element={
-              <PrivateRoute>
-                <AddContactPage />
-              </PrivateRoute>
-            }
-          />
-          {isFetchingCurrentUser && (
+      {!isFetchingCurrentUser && (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route
+              index
+              element={
+                <PublicRoute>
+                  <HomePage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/add"
+              element={
+                <PrivateRoute>
+                  <AddContactPage />
+                </PrivateRoute>
+              }
+            />
             <Route
               path="/contacts"
               element={
@@ -47,9 +47,9 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-          )}
-        </Route>
-      </Routes>
+          </Route>
+        </Routes>
+      )}
     </>
   );
 };

@@ -19,13 +19,18 @@ const authSlice = createSlice({
         state.user = { name: '', email: '' };
         state.isLoading = false;
         state.error = null;
-        state.isFetchingCurrentUser = false;
+      })
+      .addCase(fetchCurrentUser.pending, state => {
+        state.isFetchingCurrentUser = true;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoading = false;
         state.error = null;
-        state.isFetchingCurrentUser = true;
+        state.isFetchingCurrentUser = false;
+      })
+      .addCase(fetchCurrentUser.rejected, state => {
+        state.isFetchingCurrentUser = false;
       })
       .addMatcher(
         isAnyOf(
@@ -36,7 +41,6 @@ const authSlice = createSlice({
         ),
         state => {
           state.isLoading = true;
-          state.isFetchingCurrentUser = true;
         }
       )
       .addMatcher(
@@ -58,7 +62,6 @@ const authSlice = createSlice({
         (state, { payload }) => {
           state.isLoading = false;
           state.error = payload;
-          state.isFetchingCurrentUser = false;
         }
       );
   },
