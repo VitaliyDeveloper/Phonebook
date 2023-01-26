@@ -1,20 +1,21 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchCurrentUser } from 'redux/auth/auth-operations';
+import { useAuth } from 'hooks/useAuth';
+import PrivateRoute from 'HOCs/PrivateRoute';
+// import RestrictedRoute from 'HOCs/RestrictedRoute';
+import PublicRoute from 'HOCs/PublicRoute';
 import Layout from './Layout/Layout';
 import HomePage from 'pages/HomePage';
 import AddContactPage from 'pages/AddContactPage';
 import ContactsPage from 'pages/ContactsPage';
-import { fetchCurrentUser } from 'redux/auth/auth-operations';
-import PrivateRoute from 'HOCs/PrivateRoute';
-import { RestrictedRoute } from 'HOCs/RestrictedRoute';
-import PublicRoute from 'HOCs/PublicRoute';
-import { selectIsFetchingCurrentUser } from 'redux/auth/auth-selector';
 import Loader from './Loader/Loader';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isFetchingCurrentUser = useSelector(selectIsFetchingCurrentUser);
+
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -22,7 +23,7 @@ export const App = () => {
 
   return (
     <>
-      {isFetchingCurrentUser ? (
+      {isRefreshing ? (
         <Loader />
       ) : (
         <Routes>
@@ -39,20 +40,14 @@ export const App = () => {
             <Route
               path="/add"
               element={
-                <PrivateRoute
-                  redirectTo="/add"
-                  component={<AddContactPage />}
-                />
+                <PrivateRoute redirectTo="/" component={<AddContactPage />} />
               }
             />
 
             <Route
               path="/contacts"
               element={
-                <PrivateRoute
-                  redirectTo="/contacts"
-                  component={<ContactsPage />}
-                />
+                <PrivateRoute redirectTo="/" component={<ContactsPage />} />
               }
             />
             {/* <Route element={<PrivateRoutes />}>
