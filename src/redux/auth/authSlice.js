@@ -6,6 +6,7 @@ const initialState = {
   token: null,
   isLoading: false,
   error: null,
+  isLoggedIn: false,
   isFetchingCurrentUser: false,
 };
 
@@ -19,9 +20,11 @@ const authSlice = createSlice({
         state.user = { name: '', email: '' };
         state.isLoading = false;
         state.error = null;
+        state.isLoggedIn = false;
       })
       .addCase(fetchCurrentUser.pending, state => {
         state.isFetchingCurrentUser = true;
+        state.isLoggedIn = true;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
@@ -50,6 +53,7 @@ const authSlice = createSlice({
           state.user = user;
           state.isLoading = false;
           state.error = null;
+          state.isLoggedIn = true;
         }
       )
       .addMatcher(

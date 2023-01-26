@@ -7,8 +7,10 @@ import AddContactPage from 'pages/AddContactPage';
 import ContactsPage from 'pages/ContactsPage';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 import PrivateRoute from 'HOCs/PrivateRoute';
+import { RestrictedRoute } from 'HOCs/RestrictedRoute';
 import PublicRoute from 'HOCs/PublicRoute';
 import { selectIsFetchingCurrentUser } from 'redux/auth/auth-selector';
+import Loader from './Loader/Loader';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -20,7 +22,9 @@ export const App = () => {
 
   return (
     <>
-      {!isFetchingCurrentUser && (
+      {isFetchingCurrentUser ? (
+        <Loader />
+      ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
@@ -31,22 +35,40 @@ export const App = () => {
                 </PublicRoute>
               }
             />
+
             <Route
+              path="/add"
+              element={
+                <PrivateRoute redirectTo="/" component={<AddContactPage />} />
+              }
+            />
+
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute redirectTo="/" component={<ContactsPage />} />
+              }
+            />
+            {/* <Route element={<PrivateRoutes />}>
+              <Route path="/add" element={<AddContactPage />} />
+              <Route path="/contacts" element={<ContactsPage />} />
+            </Route> */}
+            {/* <Route
               path="/add"
               element={
                 <PrivateRoute>
                   <AddContactPage />
                 </PrivateRoute>
               }
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="/contacts"
               element={
                 <PrivateRoute>
                   <ContactsPage />
                 </PrivateRoute>
               }
-            />
+            /> */}
           </Route>
         </Routes>
       )}

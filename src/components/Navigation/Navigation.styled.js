@@ -16,7 +16,17 @@ export const NavStyle = styled.nav`
   width: 150px;
   height: 100%;
   z-index: 1000;
-  @media screen and (min-width: 480px) {
+  animation: showLeft 1000ms ease-in-out;
+
+  @keyframes showLeft {
+    0% {
+      transform: translate(-120%, 0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 0.9;
+    }
   }
 `;
 

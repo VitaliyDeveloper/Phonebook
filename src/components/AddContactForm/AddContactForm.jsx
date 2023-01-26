@@ -51,7 +51,7 @@ const AddContactForm = () => {
     const isExist = contacts.find(
       contact => contact.name === name || contact.number === number
     );
-    console.log(isExist);
+    // console.log(isExist);
 
     if (isExist) {
       resetFields();
@@ -60,7 +60,7 @@ const AddContactForm = () => {
     }
 
     dispatch(addContacts(contact));
-    console.log(contact);
+    // console.log(contact);
 
     resetFields();
   };
