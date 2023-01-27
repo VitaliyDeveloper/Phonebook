@@ -70,6 +70,7 @@ export const Close = styled(RiCloseCircleLine)`
   top: 20px;
   right: 20px;
   color: var(--accent-color);
+  cursor: pointer;
 
   &:hover {
     color: var(--second-color);

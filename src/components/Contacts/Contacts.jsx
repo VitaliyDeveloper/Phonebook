@@ -17,8 +17,9 @@ import {
   FieldContact,
   FieldContactContainer,
 } from 'components/Contacts/Contacts.styled';
-import { Button } from '@mui/material';
+import { Button, Modal } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import ModalEl from 'components/Modal/Modal';
 
 const Root = styled('div')(({ theme }) => ({
   margin: theme.spacing(1),
@@ -66,13 +67,15 @@ const Contacts = () => {
         <>
           {contacts.map(({ name, number, id }) => (
             <>
-              {contactUpdate && contactUpdate.id === id && (
-                <UpdateContactForm
-                  contactUpdate={contactUpdate}
-                  closeForm={closeForm}
-                />
-              )}
               <ContactItem key={id}>
+                <ModalEl>
+                  {contactUpdate && contactUpdate.id === id && (
+                    <UpdateContactForm
+                      contactUpdate={contactUpdate}
+                      closeForm={closeForm}
+                    />
+                  )}
+                </ModalEl>
                 <ContactContainer>
                   <Avatar name={name} size="50" borderRadius="5" />
                   <FieldContactContainer>
