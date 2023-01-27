@@ -5,7 +5,7 @@ import { fetchCurrentUser } from 'redux/auth/auth-operations';
 import { useAuth } from 'hooks/useAuth';
 import PrivateRoute from 'HOCs/PrivateRoute';
 // import RestrictedRoute from 'HOCs/RestrictedRoute';
-import PublicRoute from 'HOCs/PublicRoute';
+// import PublicRoute from 'HOCs/PublicRoute';
 import Layout from './Layout/Layout';
 import HomePage from 'pages/HomePage';
 import AddContactPage from 'pages/AddContactPage';
