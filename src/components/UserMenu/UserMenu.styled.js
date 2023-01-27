@@ -24,6 +24,10 @@ export const NameText = styled.p`
   max-width: 100px;
   animation: marquee 5000ms infinite linear;
 
+  &:hover {
+    animation-play-state: paused;
+  }
+
   @keyframes marquee {
     0% {
       transform: translateX(100%);
