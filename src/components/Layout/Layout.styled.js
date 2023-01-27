@@ -9,11 +9,11 @@ const Main = styled.main`
   &::after {
     content: '';
     position: absolute;
-    top: 50px;
+    bottom: 0;
     left: 0;
     /* min-height: 500px; */
-    height: 100vh;
-    width: 100%;
+    height: 90vh;
+    width: 80%;
     opacity: 50%;
     background: url(${imgBG});
     background-position: top;

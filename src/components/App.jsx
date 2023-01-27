@@ -28,7 +28,15 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
+            {/* <Route
+              path="/"
+              element={
+                <RestrictedRoute
+                  redirectTo="/contacts"
+                  component={<HomePage />}
+                />
+              }
+            /> */}
 
             <Route
               path="/add"
@@ -36,15 +44,35 @@ export const App = () => {
                 <PrivateRoute redirectTo="/" component={<AddContactPage />} />
               }
             />
-
             <Route
               path="/contacts"
               element={
                 <PrivateRoute redirectTo="/" component={<ContactsPage />} />
               }
             />
+            <Route index element={<HomePage />} />
 
-            {/* <Route element={<PrivateRoutes />}>
+            {/* <Route
+              path="/add"
+              element={
+                <PrivateRoute
+                  redirectTo="/add"
+                  component={<AddContactPage />}
+                />
+              }
+            />
+
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute
+                  redirectTo="/contacts"
+                  component={<ContactsPage />}
+                />
+              }
+            /> */}
+
+            {/* <Route element={<PrivateRoute />}>
               <Route path="/add" element={<AddContactPage />} />
               <Route path="/contacts" element={<ContactsPage />} />
             </Route> */}

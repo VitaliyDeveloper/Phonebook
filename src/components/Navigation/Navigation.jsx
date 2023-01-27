@@ -61,6 +61,7 @@ const Navigation = () => {
 
         {/* {register && <RegisterForm closeForm={closeForm} />}
         {login && <LoginForm closeForm={closeForm} />} */}
+
         <ItemStyle>
           <NavLinkStyle to="/">Home</NavLinkStyle>
         </ItemStyle>
