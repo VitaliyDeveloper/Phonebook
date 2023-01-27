@@ -17,7 +17,7 @@ import {
   FieldContact,
   FieldContactContainer,
 } from 'components/Contacts/Contacts.styled';
-import { Button, Modal } from '@mui/material';
+import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ModalEl from 'components/Modal/Modal';
 
