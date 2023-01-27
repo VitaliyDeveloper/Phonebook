@@ -11,7 +11,6 @@ import {
   LogoContainer,
   Logo,
   Logotext,
-  // Btn,
 } from './Navigation.styled';
 // import { LoginForm } from 'components/LoginForm/LoginForm';
 // import { register } from 'redux/auth/auth-operations';
