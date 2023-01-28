@@ -10,6 +10,7 @@ import Layout from './Layout/Layout';
 import HomePage from 'pages/HomePage';
 // import AddContactPage from 'pages/AddContactPage';
 import ContactsPage from 'pages/ContactsPage';
+import NotFound from './NotFound/NotFound';
 import Loader from './Loader/Loader';
 
 export const App = () => {
@@ -65,6 +66,8 @@ export const App = () => {
                 />
               }
             /> */}
+
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
         // <Routes>
