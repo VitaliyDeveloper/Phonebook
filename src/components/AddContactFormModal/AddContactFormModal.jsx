@@ -13,6 +13,7 @@ import {
   ShiftLeft,
   Modal,
   ModalDialog,
+  BtnContainer,
 } from './AddContactFormModal.styled';
 import { TextField, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -116,16 +117,18 @@ const AddContactFormModal = ({ closeForm }) => {
                 required
               />
             </Label>
-            <Root>
-              <Button variant="outlined" type="submit">
-                save
-              </Button>
-            </Root>
-            <Root>
-              <Button variant="outlined" onClick={handleClose}>
-                cancel
-              </Button>
-            </Root>
+            <BtnContainer>
+              <Root>
+                <Button variant="outlined" type="submit">
+                  save
+                </Button>
+              </Root>
+              <Root>
+                <Button variant="outlined" onClick={handleClose}>
+                  cancel
+                </Button>
+              </Root>
+            </BtnContainer>
           </Form>
         </FormContainer>
       </ModalDialog>

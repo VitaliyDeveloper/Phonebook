@@ -8,7 +8,7 @@ import RestrictedRoute from 'HOCs/RestrictedRoute';
 // import PublicRoute from 'HOCs/PublicRoute';
 import Layout from './Layout/Layout';
 import HomePage from 'pages/HomePage';
-import AddContactPage from 'pages/AddContactPage';
+// import AddContactPage from 'pages/AddContactPage';
 import ContactsPage from 'pages/ContactsPage';
 import Loader from './Loader/Loader';
 
