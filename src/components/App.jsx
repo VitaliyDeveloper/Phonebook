@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 import { useAuth } from 'hooks/useAuth';
 import PrivateRoute from 'HOCs/PrivateRoute';
-// import RestrictedRoute from 'HOCs/RestrictedRoute';
+import RestrictedRoute from 'HOCs/RestrictedRoute';
 // import PublicRoute from 'HOCs/PublicRoute';
 import Layout from './Layout/Layout';
 import HomePage from 'pages/HomePage';
@@ -28,73 +28,114 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
-            {/* <Route
-              path="/"
+            <Route index element={<HomePage />} />
+            <Route
+              path="/register"
               element={
                 <RestrictedRoute
                   redirectTo="/contacts"
                   component={<HomePage />}
                 />
               }
-            /> */}
-
+            />
             <Route
-              path="/add"
+              path="/login"
               element={
-                <PrivateRoute redirectTo="/" component={<AddContactPage />} />
+                <RestrictedRoute
+                  redirectTo="/contacts"
+                  component={<HomePage />}
+                />
               }
             />
             <Route
               path="/contacts"
               element={
-                <PrivateRoute redirectTo="/" component={<ContactsPage />} />
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<ContactsPage />}
+                />
               }
             />
-            <Route index element={<HomePage />} />
-
-            {/* <Route
+            <Route
               path="/add"
               element={
                 <PrivateRoute
-                  redirectTo="/add"
+                  redirectTo="/login"
                   component={<AddContactPage />}
                 />
               }
             />
-
-            <Route
-              path="/contacts"
-              element={
-                <PrivateRoute
-                  redirectTo="/contacts"
-                  component={<ContactsPage />}
-                />
-              }
-            /> */}
-
-            {/* <Route element={<PrivateRoute />}>
-              <Route path="/add" element={<AddContactPage />} />
-              <Route path="/contacts" element={<ContactsPage />} />
-            </Route> */}
-
-            {/* <Route
-              path="/add"
-              element={
-                <PrivateRoute>
-                  <AddContactPage />
-                </PrivateRoute>
-              }
-            /> */}
-            {/* <Route
-              path="/contacts"
-              element={
-                <PrivateRoute>
-                  <ContactsPage />
-                </PrivateRoute>
-              }
-            /> */}
           </Route>
         </Routes>
+        // <Routes>
+        //   <Route path="/" element={<Layout />}>
+        //     {/* <Route
+        //       path="/"
+        //       element={
+        //         <RestrictedRoute
+        //           redirectTo="/contacts"
+        //           component={<HomePage />}
+        //         />
+        //       }
+        //     /> */}
+
+        //     <Route
+        //       path="/add"
+        //       element={
+        //         <PrivateRoute redirectTo="/" component={<AddContactPage />} />
+        //       }
+        //     />
+        //     <Route
+        //       path="/contacts"
+        //       element={
+        //         <PrivateRoute redirectTo="/" component={<ContactsPage />} />
+        //       }
+        //     />
+        //     <Route index element={<HomePage />} />
+
+        //     {/* <Route
+        //       path="/add"
+        //       element={
+        //         <PrivateRoute
+        //           redirectTo="/add"
+        //           component={<AddContactPage />}
+        //         />
+        //       }
+        //     />
+
+        //     <Route
+        //       path="/contacts"
+        //       element={
+        //         <PrivateRoute
+        //           redirectTo="/contacts"
+        //           component={<ContactsPage />}
+        //         />
+        //       }
+        //     /> */}
+
+        //     {/* <Route element={<PrivateRoute />}>
+        //       <Route path="/add" element={<AddContactPage />} />
+        //       <Route path="/contacts" element={<ContactsPage />} />
+        //     </Route> */}
+
+        //     {/* <Route
+        //       path="/add"
+        //       element={
+        //         <PrivateRoute>
+        //           <AddContactPage />
+        //         </PrivateRoute>
+        //       }
+        //     /> */}
+        //     {/* <Route
+        //       path="/contacts"
+        //       element={
+        //         <PrivateRoute>
+        //           <ContactsPage />
+        //         </PrivateRoute>
+        //       }
+        //     /> */}
+        //   </Route>
+        // </Routes>
       )}
     </>
   );
