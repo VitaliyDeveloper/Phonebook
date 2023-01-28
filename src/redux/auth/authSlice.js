@@ -24,12 +24,12 @@ const authSlice = createSlice({
       })
       .addCase(fetchCurrentUser.pending, state => {
         state.isFetchingCurrentUser = true;
-        state.isLoggedIn = true;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoading = false;
         state.error = null;
+        state.isLoggedIn = true;
         state.isFetchingCurrentUser = false;
       })
       .addCase(fetchCurrentUser.rejected, state => {

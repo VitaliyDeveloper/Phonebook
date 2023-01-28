@@ -3,8 +3,9 @@ import imgBG from '../../img/man-book.png';
 
 const Main = styled.main`
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   margin-left: 150px;
+  overflow: auto;
 
   &::after {
     content: '';
