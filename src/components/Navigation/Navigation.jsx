@@ -1,8 +1,9 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/auth-selector';
 import UserMenu from 'components/UserMenu/UserMenu';
 // import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { Button } from '@mui/material';
 import {
   NavLinkStyle,
   NavStyle,
@@ -12,11 +13,12 @@ import {
   Logo,
   Logotext,
 } from './Navigation.styled';
+import AddContactFormModal from 'components/AddContactFormModal/AddContactFormModal';
 // import { LoginForm } from 'components/LoginForm/LoginForm';
 // import { register } from 'redux/auth/auth-operations';
 
 const Navigation = () => {
-  // const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(false);
   // const [register, setRegister] = useState(false);
 
   const token = useSelector(selectToken);
@@ -24,14 +26,13 @@ const Navigation = () => {
   // const showUpdateFormRegister = () => {
   //   setRegister(true);
   // };
-  // const showUpdateFormLogin = () => {
-  //   setLogin(true);
-  // };
+  const showUpdateForm = () => {
+    setLogin(true);
+  };
 
-  // const closeForm = () => {
-  //   setLogin(false);
-  //   setRegister(false);
-  // };
+  const closeForm = () => {
+    setLogin(false);
+  };
 
   return (
     <NavStyle>
@@ -68,12 +69,24 @@ const Navigation = () => {
 
         {token && (
           <>
-            <ItemStyle>
+            {/* <ItemStyle>
               <NavLinkStyle to="add">Add contact</NavLinkStyle>
-            </ItemStyle>
+            </ItemStyle> */}
             <ItemStyle>
               <NavLinkStyle to="contacts">Contacts</NavLinkStyle>
             </ItemStyle>
+          </>
+        )}
+
+        {token && (
+          <Button onClick={() => showUpdateForm()} variant="outlined">
+            Add Contact
+          </Button>
+        )}
+
+        {login && (
+          <>
+            <AddContactFormModal closeForm={closeForm} />
           </>
         )}
       </ListStyle>

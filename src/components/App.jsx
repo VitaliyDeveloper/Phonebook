@@ -56,7 +56,7 @@ export const App = () => {
                 />
               }
             />
-            <Route
+            {/* <Route
               path="/add"
               element={
                 <PrivateRoute
@@ -64,7 +64,7 @@ export const App = () => {
                   component={<AddContactPage />}
                 />
               }
-            />
+            /> */}
           </Route>
         </Routes>
         // <Routes>
